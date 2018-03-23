@@ -87,5 +87,7 @@ data.getOneMinQuotes <- function(objectName,
   
   #Return only data till 15:30 if trim is given.
   t <- paste("T00:00/",trim,sep="")
-  return (temp[t] )
+  temp <- temp[t]
+  temp <- temp[ ! duplicated( index(temp), fromLast = TRUE ),  ]
+  return (temp )
 }
